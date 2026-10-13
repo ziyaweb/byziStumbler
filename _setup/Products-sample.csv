@@ -1,0 +1,6 @@
+id,name,slug,price,stock,status,image_url,description,color,sort
+1,Midnight,midnight,189000,10,available,assets/tumbler-01.jpg,Quiet. Deep. Timeless.,#0a1628,1
+2,Ocean,ocean,199000,8,available,assets/tumbler-02.jpg,Fresh with a calm edge.,#1a4a7a,2
+3,Cobalt,cobalt,209000,5,available,assets/tumbler-03.jpg,Bold clean confident.,#164c91,3
+4,Sapphire,sapphire,199000,12,available,assets/tumbler-04.jpg,A polished everyday blue.,#2a6bb5,4
+5,Deep Sea,deep-sea,219000,3,available,assets/tumbler-05.jpg,For slower softer days.,#0d2b4a,5

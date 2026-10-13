@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <link rel="stylesheet" href="https://silverhawk.web.id/lock/lock.css">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="ByziStumbler — tumbler elegan untuk menemani setiap momen." />
@@ -12,9 +11,9 @@
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="apple-touch-icon" href="assets/favicon.svg" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="extra.css" />
 </head>
 <body>
-  <body data-shlock-mode="ultimate" data-shlock-domain="" data-shlock-brand="byziStumbler" data-shlock-social="https://www.instagram.com/,https://dai.ly/xauypoi,https://www.tiktok.com/en/">
   <div class="noise"></div>
 
   <header class="navbar">
@@ -23,11 +22,13 @@
       <a href="#home">Home</a>
       <a href="#collection">Collection</a>
       <a href="#about">About</a>
+      <a href="#inquiry">Contact</a>
     </nav>
     <a class="nav-btn" href="#collection">Explore <span>↗</span></a>
   </header>
 
   <main id="home">
+    <!-- HERO -->
     <section class="hero">
       <div class="hero-copy">
         <p class="eyebrow"><span></span> ELEVATED EVERYDAY</p>
@@ -41,7 +42,7 @@
           <a class="text-btn" href="#about">Our story</a>
         </div>
         <div class="mini-stats">
-          <div><strong>5</strong><span>Signature<br>designs</span></div>
+          <div><strong id="stat-products">5</strong><span>Signature<br>designs</span></div>
           <div><strong>24H</strong><span>Cold<br>retention</span></div>
           <div><strong>∞</strong><span>Daily<br>moments</span></div>
         </div>
@@ -49,57 +50,9 @@
 
       <div class="hero-visual">
         <div class="glow"></div>
-        <div class="slider" aria-label="Koleksi tumbler">
-          <div class="slide active">
-            <div class="product-card">
-              <div class="badge">01 / 05</div>
-              <img src="assets/tumbler-01.jpg" alt="ByziStumbler Midnight tumbler">
-              <div class="product-info">
-                <span>01 — MIDNIGHT</span>
-                <strong>Rp 189K</strong>
-              </div>
-            </div>
-          </div>
-          <div class="slide">
-            <div class="product-card">
-              <div class="badge">02 / 05</div>
-              <img src="assets/tumbler-02.jpg" alt="ByziStumbler Ocean tumbler">
-              <div class="product-info">
-                <span>02 — OCEAN</span>
-                <strong>Rp 199K</strong>
-              </div>
-            </div>
-          </div>
-          <div class="slide">
-            <div class="product-card">
-              <div class="badge">03 / 05</div>
-              <img src="assets/tumbler-03.jpg" alt="ByziStumbler Cobalt tumbler">
-              <div class="product-info">
-                <span>03 — COBALT</span>
-                <strong>Rp 209K</strong>
-              </div>
-            </div>
-          </div>
-          <div class="slide">
-            <div class="product-card">
-              <div class="badge">04 / 05</div>
-              <img src="assets/tumbler-04.jpg" alt="ByziStumbler Sapphire tumbler">
-              <div class="product-info">
-                <span>04 — SAPPHIRE</span>
-                <strong>Rp 199K</strong>
-              </div>
-            </div>
-          </div>
-          <div class="slide">
-            <div class="product-card">
-              <div class="badge">05 / 05</div>
-              <img src="assets/tumbler-05.jpg" alt="ByziStumbler Deep Sea tumbler">
-              <div class="product-info">
-                <span>05 — DEEP SEA</span>
-                <strong>Rp 219K</strong>
-              </div>
-            </div>
-          </div>
+        <div class="slider" id="product-slider" aria-label="Koleksi tumbler">
+          <!-- Slides diisi oleh JS dari Google Sheets -->
+          <div class="slider-loading">Memuat koleksi…</div>
         </div>
         <div class="slider-controls">
           <button id="prev" aria-label="Slide sebelumnya">←</button>
@@ -113,21 +66,20 @@
       <div>BYZISTUMBLER <span>✦</span> MADE FOR YOUR EVERYDAY <span>✦</span> BYZISTUMBLER <span>✦</span> MADE FOR YOUR EVERYDAY <span>✦</span></div>
     </section>
 
+    <!-- COLLECTION (dinamis) -->
     <section class="collection" id="collection">
       <div class="section-heading">
         <p class="eyebrow"><span></span> THE COLLECTION</p>
         <h2>Find your <em>blue.</em></h2>
         <p>Five moods, one signature silhouette.</p>
       </div>
-      <div class="collection-grid">
-        <article><img src="assets/tumbler-01.jpg" alt=""><div><span>01</span><h3>Midnight</h3><p>Quiet. Deep. Timeless.</p></div></article>
-        <article><img src="assets/tumbler-02.jpg" alt=""><div><span>02</span><h3>Ocean</h3><p>Fresh with a calm edge.</p></div></article>
-        <article><img src="assets/tumbler-03.jpg" alt=""><div><span>03</span><h3>Cobalt</h3><p>Bold, clean, confident.</p></div></article>
-        <article><img src="assets/tumbler-04.jpg" alt=""><div><span>04</span><h3>Sapphire</h3><p>A polished everyday blue.</p></div></article>
-        <article><img src="assets/tumbler-05.jpg" alt=""><div><span>05</span><h3>Deep Sea</h3><p>For slower, softer days.</p></div></article>
+      <div class="collection-grid" id="collection-grid">
+        <!-- diisi JS -->
+        <div class="grid-loading">Memuat produk…</div>
       </div>
     </section>
 
+    <!-- ABOUT -->
     <section class="about" id="about">
       <div class="about-box">
         <p class="eyebrow"><span></span> BYZISTUMBLER</p>
@@ -135,6 +87,36 @@
         <p>We believe the things you carry every day should feel as good as they look. ByziStumbler pairs a refined silhouette with a deep-blue palette made for modern routines.</p>
         <a href="#collection" class="primary-btn">See the collection <span>→</span></a>
       </div>
+    </section>
+
+    <!-- INQUIRY / CONTACT -->
+    <section class="inquiry-section" id="inquiry">
+      <div class="section-heading">
+        <p class="eyebrow"><span></span> GET IN TOUCH</p>
+        <h2>Tanya stok atau<br><em>custom order.</em></h2>
+        <p>Isi form di bawah, kami akan segera menghubungi via WhatsApp.</p>
+      </div>
+
+      <form id="inquiry-form" class="form-card" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inq-nama">Nama</label>
+            <input type="text" id="inq-nama" name="nama" placeholder="Nama lengkap" required>
+          </div>
+          <div class="form-group">
+            <label for="inq-kontak">WhatsApp / Email</label>
+            <input type="text" id="inq-kontak" name="kontak" placeholder="08xxxxxxxxxx atau email" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inq-pesan">Pesan</label>
+          <textarea id="inq-pesan" name="pesan" rows="4" placeholder="Tanya stok, custom warna, atau pertanyaan lain…" required></textarea>
+        </div>
+        <button type="submit" class="primary-btn form-submit" id="inq-submit">
+          Kirim Pesan <span>→</span>
+        </button>
+        <p class="form-msg" id="inq-msg" hidden></p>
+      </form>
     </section>
   </main>
 
@@ -144,12 +126,50 @@
     <p>© 2026 ByziStumbler</p>
   </footer>
 
-  <audio id="bgMusic" loop preload="auto">
-    <source src="assets/elegant-backsound.mp3" type="audio/mpeg">
-  </audio>
-  <button class="sound-btn" id="soundBtn" aria-label="Nyalakan atau matikan backsound">♪ <span>Sound off</span></button>
+  <!-- ORDER MODAL -->
+  <div class="modal-overlay" id="order-modal" hidden>
+    <div class="modal">
+      <button class="modal-close" id="modal-close" aria-label="Tutup">×</button>
+      <h3>Order <span id="modal-product-name">—</span></h3>
+      <p class="modal-price" id="modal-price">Rp —</p>
+
+      <form id="order-form" novalidate>
+        <input type="hidden" id="order-product-id" name="product_id">
+        <input type="hidden" id="order-product-name" name="product_name">
+        <input type="hidden" id="order-price" name="price">
+
+        <div class="form-group">
+          <label for="order-nama">Nama Lengkap</label>
+          <input type="text" id="order-nama" name="nama" placeholder="Nama kamu" required>
+        </div>
+        <div class="form-group">
+          <label for="order-wa">Nomor WhatsApp</label>
+          <input type="tel" id="order-wa" name="whatsapp" placeholder="08xxxxxxxxxx" required>
+        </div>
+        <div class="form-group">
+          <label for="order-qty">Jumlah</label>
+          <input type="number" id="order-qty" name="qty" min="1" value="1" required>
+        </div>
+        <div class="form-group">
+          <label for="order-catatan">Catatan (opsional)</label>
+          <textarea id="order-catatan" name="catatan" rows="2" placeholder="Warna custom, request khusus, dll"></textarea>
+        </div>
+
+        <div class="order-total">
+          Total: <strong id="order-total-display">Rp 0</strong>
+        </div>
+
+        <button type="submit" class="primary-btn form-submit" id="order-submit">
+          Kirim Order <span>→</span>
+        </button>
+        <p class="form-msg" id="order-msg" hidden></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast notifikasi -->
+  <div class="toast" id="toast" hidden></div>
 
   <script src="script.js"></script>
-<script src="https://silverhawk.web.id/lock/lock.js"></script>
-  </body>
+</body>
 </html>

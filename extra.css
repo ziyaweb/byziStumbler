@@ -1,0 +1,330 @@
+/* ========== EXTRA STYLES — Forms, Modal, Dynamic states ========== */
+
+.slider-loading,
+.grid-loading {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Collection card enhancements */
+.collection-grid article {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.collection-grid article:hover {
+  transform: translateY(-6px);
+}
+
+.collection-grid article .card-actions {
+  margin-top: 0.85rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.collection-grid article .order-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.9rem;
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s, opacity 0.25s;
+}
+
+.collection-grid article .order-btn:hover:not(:disabled) {
+  background: #1e5fad;
+}
+
+.collection-grid article .order-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  background: #3a4a5c;
+}
+
+.badge-soldout {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(180, 40, 40, 0.9);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.3rem 0.55rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.stock-info {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+/* ========== INQUIRY SECTION ========== */
+.inquiry-section {
+  padding: 5rem 1.5rem 6rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.inquiry-section .section-heading {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.form-card {
+  background: rgba(9, 30, 61, 0.7);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 2rem 1.75rem;
+  backdrop-filter: blur(12px);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 560px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-group {
+  margin-bottom: 1.15rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background: rgba(6, 21, 45, 0.85);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  color: var(--white);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: rgba(100, 160, 230, 0.55);
+  box-shadow: 0 0 0 3px rgba(40, 100, 180, 0.2);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(159, 179, 206, 0.5);
+}
+
+.form-submit {
+  width: 100%;
+  justify-content: center;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  border: none;
+}
+
+.form-submit:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.form-msg {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+}
+
+.form-msg.success {
+  background: rgba(40, 140, 90, 0.2);
+  color: #8fefb0;
+  border: 1px solid rgba(80, 180, 120, 0.35);
+}
+
+.form-msg.error {
+  background: rgba(160, 50, 50, 0.2);
+  color: #ffb0b0;
+  border: 1px solid rgba(200, 80, 80, 0.35);
+}
+
+/* ========== ORDER MODAL ========== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 10, 22, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background: linear-gradient(160deg, #0b1e3a 0%, #071428 100%);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 2rem 1.75rem 1.75rem;
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+  transform: translateY(16px);
+  transition: transform 0.3s;
+}
+
+.modal-overlay.show .modal {
+  transform: translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 1.6rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.2rem;
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: var(--white);
+}
+
+.modal h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.modal h3 span {
+  color: #7eb6f0;
+}
+
+.modal-price {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.4rem;
+}
+
+.order-total {
+  text-align: right;
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin: 0.75rem 0 1.1rem;
+}
+
+.order-total strong {
+  color: var(--ice);
+  font-size: 1.15rem;
+}
+
+/* ========== TOAST ========== */
+.toast {
+  position: fixed;
+  bottom: 1.75rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #0d2a4e;
+  border: 1px solid rgba(100, 160, 230, 0.4);
+  color: var(--ice);
+  padding: 0.85rem 1.4rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  z-index: 1100;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  max-width: 90vw;
+  text-align: center;
+}
+
+.toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast.success {
+  border-color: rgba(80, 180, 120, 0.5);
+}
+
+.toast.error {
+  border-color: rgba(200, 80, 80, 0.5);
+}
+
+/* ========== SLIDER product-info enhancement ========== */
+.product-info .stock-label {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-top: 0.15rem;
+}
+
+.slide .order-btn-slide {
+  margin-top: 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem 0.85rem;
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+
+.slide .order-btn-slide:hover:not(:disabled) {
+  background: #1e5fad;
+}
+
+.slide .order-btn-slide:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
