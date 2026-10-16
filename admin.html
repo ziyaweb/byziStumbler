@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — ByziStumbler</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="extra.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin-body">
+  <div class="noise"></div>
+
+  <!-- LOGIN -->
+  <div id="login-screen" class="login-screen">
+    <div class="login-card">
+      <div class="logo"><span>BYZI</span>STUMBLER</div>
+      <h1>Admin Panel</h1>
+      <p class="login-hint">Masukkan password admin</p>
+      <form id="login-form">
+        <input type="password" id="login-password" placeholder="Password" autocomplete="current-password" required>
+        <button type="submit" class="primary-btn" id="login-btn">Masuk</button>
+      </form>
+      <p class="form-msg" id="login-msg" hidden></p>
+      <a href="index.html" class="back-link">← Kembali ke website</a>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="admin-app" class="admin-app" hidden>
+    <header class="admin-header">
+      <div class="logo"><span>BYZI</span>STUMBLER <small>Admin</small></div>
+      <nav class="admin-tabs">
+        <button class="tab active" data-tab="dashboard">Dashboard</button>
+        <button class="tab" data-tab="products">Products</button>
+        <button class="tab" data-tab="orders">Orders</button>
+        <button class="tab" data-tab="inquiries">Inquiries</button>
+      </nav>
+      <div class="admin-actions">
+        <a href="index.html" class="text-btn">Website</a>
+        <button id="logout-btn" class="text-btn danger">Logout</button>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <!-- DASHBOARD -->
+      <section id="tab-dashboard" class="tab-panel active">
+        <h2>Dashboard</h2>
+        <div class="stats-grid" id="stats-grid">
+          <div class="stat-card"><span class="stat-label">Products</span><strong id="s-products">—</strong></div>
+          <div class="stat-card"><span class="stat-label">Orders</span><strong id="s-orders">—</strong></div>
+          <div class="stat-card"><span class="stat-label">Pending</span><strong id="s-pending">—</strong></div>
+          <div class="stat-card"><span class="stat-label">Revenue</span><strong id="s-revenue">—</strong></div>
+          <div class="stat-card"><span class="stat-label">Inquiries</span><strong id="s-inquiries">—</strong></div>
+          <div class="stat-card"><span class="stat-label">New Inquiry</span><strong id="s-new-inq">—</strong></div>
+          <div class="stat-card"><span class="stat-label">Low Stock</span><strong id="s-lowstock">—</strong></div>
+          <div class="stat-card"><span class="stat-label">Sold Out</span><strong id="s-soldout">—</strong></div>
+        </div>
+        <p class="admin-note">Data diambil live dari Google Sheets. Klik tab di atas untuk kelola data (CRUD).</p>
+      </section>
+
+      <!-- PRODUCTS -->
+      <section id="tab-products" class="tab-panel">
+        <div class="panel-head">
+          <h2>Products</h2>
+          <button class="primary-btn" id="btn-add-product">+ Tambah Produk</button>
+        </div>
+        <div class="table-wrap">
+          <table class="admin-table" id="products-table">
+            <thead>
+              <tr>
+                <th>ID</th><th>Nama</th><th>Harga</th><th>Stok</th><th>Status</th><th>Sort</th><th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ORDERS -->
+      <section id="tab-orders" class="tab-panel">
+        <div class="panel-head">
+          <h2>Orders</h2>
+          <button class="text-btn" id="btn-refresh-orders">↻ Refresh</button>
+        </div>
+        <div class="table-wrap">
+          <table class="admin-table" id="orders-table">
+            <thead>
+              <tr>
+                <th>Order ID</th><th>Waktu</th><th>Nama</th><th>WA</th><th>Produk</th><th>Qty</th><th>Total</th><th>Status</th><th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- INQUIRIES -->
+      <section id="tab-inquiries" class="tab-panel">
+        <div class="panel-head">
+          <h2>Inquiries</h2>
+          <button class="text-btn" id="btn-refresh-inq">↻ Refresh</button>
+        </div>
+        <div class="table-wrap">
+          <table class="admin-table" id="inquiries-table">
+            <thead>
+              <tr>
+                <th>ID</th><th>Waktu</th><th>Nama</th><th>Kontak</th><th>Pesan</th><th>Status</th><th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- MODAL FORM (reusable) -->
+  <div class="modal-overlay" id="admin-modal" hidden>
+    <div class="modal admin-modal">
+      <button class="modal-close" id="admin-modal-close">×</button>
+      <h3 id="admin-modal-title">Form</h3>
+      <form id="admin-form"></form>
+      <p class="form-msg" id="admin-form-msg" hidden></p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

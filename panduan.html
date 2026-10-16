@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panduan — ByziStumbler</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="extra.css" />
+  <style>
+    .guide-page { max-width: 720px; margin: 0 auto; padding: 6rem 1.5rem 4rem; }
+    .guide-page h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .guide-page .lead { color: var(--muted); margin-bottom: 2.5rem; line-height: 1.6; }
+    .guide-section {
+      background: rgba(9, 30, 61, 0.6);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1.5rem 1.4rem;
+      margin-bottom: 1.25rem;
+    }
+    .guide-section h2 {
+      font-size: 1.15rem;
+      margin-bottom: 0.75rem;
+      color: var(--ice);
+    }
+    .guide-section ol, .guide-section ul {
+      padding-left: 1.25rem;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+    .guide-section li { margin-bottom: 0.35rem; }
+    .guide-section strong { color: var(--white); }
+    .guide-back {
+      display: inline-flex;
+      margin-bottom: 1.5rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .guide-back:hover { color: var(--ice); }
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.4rem;
+      height: 1.4rem;
+      background: var(--blue);
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-right: 0.4rem;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+
+  <header class="navbar">
+    <a class="logo" href="index.html"><span>BYZI</span>STUMBLER</a>
+    <nav id="main-nav">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#collection">Collection</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#inquiry">Contact</a>
+      <a href="panduan.html">Panduan</a>
+      <a href="admin.html" class="nav-admin">Admin</a>
+    </nav>
+    <div class="nav-right">
+      <a class="nav-btn" href="index.html#collection">Explore <span>↗</span></a>
+      <a class="nav-admin-btn" href="admin.html">Admin</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" type="button">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <script>
+  (function(){var b=document.getElementById("hamburger"),n=document.getElementById("main-nav");if(!b||!n)return;b.addEventListener("click",function(){b.classList.toggle("open");n.classList.toggle("open");});n.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){b.classList.remove("open");n.classList.remove("open");});});})();
+  </script>
+
+  <main class="guide-page">
+    <a class="guide-back" href="index.html">← Kembali ke beranda</a>
+    <h1>Panduan Pemakaian</h1>
+    <p class="lead">
+      Cara memesan tumbler ByziStumbler, menanyakan stok, dan memahami status order.
+      Semua data tersimpan aman di database kami.
+    </p>
+
+    <div class="guide-section">
+      <h2><span class="step-num">1</span> Lihat koleksi</h2>
+      <ul>
+        <li>Scroll ke bagian <strong>Collection</strong> atau klik slider di beranda.</li>
+        <li>Setiap produk menampilkan <strong>harga</strong> dan <strong>sisa stok</strong> secara real-time.</li>
+        <li>Jika bertuliskan <strong>Sold Out</strong>, produk sedang habis dan tombol order nonaktif.</li>
+      </ul>
+    </div>
+
+    <div class="guide-section">
+      <h2><span class="step-num">2</span> Cara order</h2>
+      <ol>
+        <li>Klik tombol <strong>Order Now</strong> pada produk yang diinginkan.</li>
+        <li>Isi <strong>nama lengkap</strong> dan <strong>nomor WhatsApp</strong> (aktif).</li>
+        <li>Pilih <strong>jumlah</strong> (tidak boleh melebihi stok).</li>
+        <li>Isi catatan jika perlu (misal request khusus).</li>
+        <li>Klik <strong>Kirim Order</strong>.</li>
+        <li>Anda akan mendapat <strong>nomor order</strong> otomatis, contoh: <code>BZ-20261016-0003</code>.</li>
+      </ol>
+      <p style="margin-top:0.75rem;color:var(--muted);font-size:0.9rem;">
+        Setelah order masuk, tim kami akan menghubungi via WhatsApp untuk konfirmasi pembayaran & pengiriman.
+      </p>
+    </div>
+
+    <div class="guide-section">
+      <h2><span class="step-num">3</span> Tanya stok / custom</h2>
+      <ul>
+        <li>Buka section <strong>Contact</strong> di beranda.</li>
+        <li>Isi nama, kontak (WA/email), dan pesan Anda.</li>
+        <li>Kirim — kami akan membalas secepatnya.</li>
+      </ul>
+    </div>
+
+    <div class="guide-section">
+      <h2><span class="step-num">4</span> Status order (untuk admin)</h2>
+      <ul>
+        <li><strong>pending</strong> — order baru, menunggu konfirmasi</li>
+        <li><strong>paid</strong> — sudah dibayar</li>
+        <li><strong>shipped</strong> — sudah dikirim</li>
+        <li><strong>done</strong> — selesai</li>
+        <li><strong>cancelled</strong> — dibatalkan</li>
+      </ul>
+    </div>
+
+    <div class="guide-section">
+      <h2>Yang terjadi di balik layar</h2>
+      <ul>
+        <li>Data produk, order, dan inquiry disimpan di <strong>Google Sheets</strong> (database gratis).</li>
+        <li>Saat order berhasil, <strong>stok otomatis berkurang</strong>.</li>
+        <li>Jika stok habis, status produk berubah menjadi <strong>soldout</strong>.</li>
+        <li>Nomor order & waktu dibuat otomatis (zona waktu Asia/Jakarta).</li>
+      </ul>
+    </div>
+
+    <div class="guide-section">
+      <h2>Butuh bantuan?</h2>
+      <p style="color:var(--muted);font-size:0.95rem;line-height:1.6;">
+        Gunakan form Contact di beranda, atau hubungi admin via Instagram / WhatsApp yang tertera di media sosial ByziStumbler.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="logo"><span>BYZI</span>STUMBLER</div>
+    <p>Drink beautifully. Live intentionally.</p>
+    <p>© 2026 ByziStumbler</p>
+  </footer>
+</body>
+</html>

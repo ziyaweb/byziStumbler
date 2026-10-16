@@ -348,3 +348,20 @@ document.getElementById("inquiry-form").addEventListener("submit", async (e) => 
 document.addEventListener("DOMContentLoaded", () => {
   loadProducts();
 });
+
+/* ---------- Mobile hamburger menu ---------- */
+(function () {
+  const btn = document.getElementById("hamburger");
+  const nav = document.getElementById("main-nav");
+  if (!btn || !nav) return;
+  btn.addEventListener("click", () => {
+    btn.classList.toggle("open");
+    nav.classList.toggle("open");
+  });
+  nav.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", () => {
+      btn.classList.remove("open");
+      nav.classList.remove("open");
+    });
+  });
+})();

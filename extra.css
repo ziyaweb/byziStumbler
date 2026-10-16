@@ -328,3 +328,107 @@
   opacity: 0.45;
   cursor: not-allowed;
 }
+
+/* ========== MOBILE NAV + ADMIN BUTTON ========== */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.nav-admin-btn {
+  display: none;
+  border: 1px solid rgba(100, 160, 230, 0.45);
+  padding: 9px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #7eb6f0;
+  transition: background 0.2s, color 0.2s;
+}
+.nav-admin-btn:hover {
+  background: rgba(22, 76, 145, 0.4);
+  color: #fff;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 8px 10px;
+}
+.hamburger span {
+  display: block;
+  height: 2px;
+  background: var(--ice);
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+}
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Override original: keep nav usable on mobile via dropdown */
+@media (max-width: 900px) {
+  nav#main-nav {
+    display: none;
+    position: absolute;
+    top: 84px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(6, 21, 45, 0.97);
+    border-bottom: 1px solid var(--line);
+    padding: 0.5rem 0;
+    z-index: 20;
+    backdrop-filter: blur(16px);
+  }
+  nav#main-nav.open {
+    display: flex;
+  }
+  nav#main-nav a {
+    padding: 0.9rem 6vw;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+  }
+  nav#main-nav a:last-child {
+    border-bottom: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .nav-admin-btn {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 560px) {
+  .nav-btn {
+    display: none;
+  }
+}
+
+/* Desktop: slightly tighter gap so 6 links fit */
+@media (min-width: 901px) {
+  nav#main-nav {
+    gap: 22px;
+  }
+  nav#main-nav a.nav-admin {
+    color: #7eb6f0;
+    font-weight: 600;
+  }
+}
