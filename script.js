@@ -6,7 +6,7 @@
 // ============================================================
 //  GANTI URL INI setelah deploy Apps Script Web App
 // ============================================================
-const API_URL = "GANTI_DENGAN_WEB_APP_URL_KAMU";
+const API_URL = "https://script.google.com/macros/s/AKfycbxBt0lYAKKoYw551LhEDQGIdPvwhXA4XdATiL85tldxohJyC26eT6qu8v0TNiLPWcaCUA/exec";
 // Contoh: "https://script.google.com/macros/s/AKfycb.../exec"
 // ============================================================
 
